@@ -30,6 +30,11 @@ pub extern fn foo_intx(x: c_int) -> c_int {
 }
 
 #[no_mangle]
+pub extern fn foo_intxy(x: c_int, y: c_int) -> c_int {
+    x * y
+}
+
+#[no_mangle]
 pub extern fn foo_dbl() -> c_double {
     4.2 as c_double
 }

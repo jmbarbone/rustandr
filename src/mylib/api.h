@@ -8,6 +8,7 @@ char * foo_hello();
 int foo_int();
 int foo_int_sq();
 int foo_intx();
+int foo_intxy();
 double foo_dbl();
 double foo_dbl_sq();
 double foo_dblx();

@@ -38,6 +38,14 @@ foo_intx <- function(x = 42L) {
 
 #' @rdname funs
 #' @export
+#' @useDynLib rustandr impl_foo_intxy
+foo_intxy <- function(x = 42L, y = 17L) {
+  stopifnot(is.integer(x) & is.integer(y))
+  .Call(impl_foo_intxy, x, y)
+}
+
+#' @rdname funs
+#' @export
 #' @useDynLib rustandr impl_foo_dbl
 foo_dbl <- function() {
   .Call(impl_foo_dbl)

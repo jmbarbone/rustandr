@@ -10,6 +10,9 @@ test_that("foo_int()", {
   expect_equal(foo_intx(), 42L)
   expect_equal(foo_intx(17L), 17L)
   expect_error(foo_intx(4.2))
+  expect_equal(foo_intxy(), 42L * 17L)
+  expect_equal(foo_intxy(21L, 13L), 21L * 13L)
+  expect_error(foo_intxy(4.2))
 })
 
 test_that("foo_dbl()", {
