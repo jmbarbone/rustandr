@@ -1,0 +1,13 @@
+LIBDIR = mylib/target/release
+STATLIB = $(LIBDIR)/libmylib.a
+PKG_LIBS = -L$(LIBDIR) -lmylib -lresolv
+
+all: clean
+
+$(SHLIB): $(STATLIB)
+
+$(STATLIB):
+	cargo build --release --manifest-path=mylib/Cargo.toml
+
+clean:
+	rm -Rf $(SHLIB) $(STATLIB) $(OBJECTS) mylib/target
