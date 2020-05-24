@@ -21,6 +21,11 @@ test_that("integers", {
   expect_error(foo_intn(1))
   expect_error(foo_intn(1L, 2))
   expect_error(foo_intn(1L, 2L))
+  expect_equal(foo_mk_seq(), 1:10)
+  expect_length(foo_mk_seq(100L), 100)
+  expect_error(foo_mk_seq(3))
+  expect_error(foo_mk_seq(0))
+  expect_error(foo_mk_seq(-1))
 })
 
 test_that("doubles", {
@@ -33,4 +38,7 @@ test_that("doubles", {
   expect_equal(foo_dblxy(), 4.2 / 1.7)
   expect_equal(foo_dblxy(21, 13), 21 / 13)
   expect_error(foo_dblxy(x = 42L), NA)
+  expect_equal(foo_mk_dbl(), double(10))
+  expect_length(foo_mk_dbl(100L), 100)
+  expect_error(foo_mk_dbl(10))
 })

@@ -8,10 +8,12 @@
 \alias{foo_intx}
 \alias{foo_intxy}
 \alias{foo_intn}
+\alias{foo_mk_seq}
 \alias{foo_dbl}
 \alias{foo_dbl_sq}
 \alias{foo_dblx}
 \alias{foo_dblxy}
+\alias{foo_mk_dbl}
 \title{Functions}
 \usage{
 foo_hello()
@@ -26,6 +28,8 @@ foo_intxy(x = 42L, y = 17L)
 
 foo_intn(x = 1:2)
 
+foo_mk_seq(x = 10L)
+
 foo_dbl()
 
 foo_dbl_sq()
@@ -33,6 +37,8 @@ foo_dbl_sq()
 foo_dblx(x = 4.2)
 
 foo_dblxy(x = 4.2, y = 1.7)
+
+foo_mk_dbl(x = 10L)
 }
 \description{
 Functions that call to Rust

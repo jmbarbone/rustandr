@@ -54,6 +54,14 @@ foo_intn <- function(x = 1:2) {
 
 #' @rdname funs
 #' @export
+#' @useDynLib rustandr impl_foo_mk_seq
+foo_mk_seq <- function(x = 10L) {
+  stopifnot(is.integer(x) & x > 0L)
+  .Call(impl_foo_mk_seq, x)
+}
+
+#' @rdname funs
+#' @export
 #' @useDynLib rustandr impl_foo_dbl
 foo_dbl <- function() {
   .Call(impl_foo_dbl)
@@ -78,4 +86,12 @@ foo_dblx <- function(x = 4.2) {
 #' @useDynLib rustandr impl_foo_dblxy
 foo_dblxy <- function(x = 4.2, y = 1.7) {
   .Call(impl_foo_dblxy, as.double(x), as.double(y))
+}
+
+#' @rdname funs
+#' @export
+#' @useDynLib rustandr impl_foo_mk_dbl
+foo_mk_dbl <- function(x = 10L) {
+  stopifnot(is.integer(x))
+  .Call(impl_foo_mk_dbl, x)
 }

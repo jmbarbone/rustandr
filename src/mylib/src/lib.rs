@@ -10,3 +10,5 @@ pub use functions::foo_dblx;
 pub use functions::foo_intxy;
 pub use functions::foo_dblxy;
 pub use functions::foo_intn;
+pub use functions::foo_mk_dbl;
+pub use functions::foo_mk_seq;

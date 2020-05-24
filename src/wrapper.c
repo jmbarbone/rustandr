@@ -41,6 +41,19 @@ SEXP impl_foo_intn(SEXP x){
   return out;
 }
 
+SEXP impl_foo_mk_seq(SEXP x){
+  int n = Rf_asInteger(x);
+  SEXP out = PROTECT(Rf_allocVector(INTSXP, n));
+  int * result = foo_mk_seq(n);
+
+  for(int i = 0; i < n; i++) {
+    INTEGER(out)[i] = result[i];
+  }
+
+  UNPROTECT(1);
+  return out;
+}
+
 SEXP impl_foo_dbl(){
   return Rf_ScalarReal(foo_dbl());
 }
@@ -57,6 +70,17 @@ SEXP impl_foo_dblxy(SEXP x, SEXP y){
   return Rf_ScalarReal(foo_dblxy(Rf_asReal(x), Rf_asReal(y)));
 }
 
+SEXP impl_foo_mk_dbl(SEXP x){
+  int n = Rf_asInteger(x);
+  double * result = foo_mk_dbl(n);
+  SEXP out = PROTECT(Rf_allocVector(REALSXP, n));
+  for(int i = 0; i < n; i++) {
+    REAL(out)[i] = result[i];
+  }
+  UNPROTECT(1);
+  return out;
+}
+
 // Standard R package stuff
 static const R_CallMethodDef CallEntries[] = {
   {"impl_foo_hello", (DL_FUNC) &impl_foo_hello, 0},
@@ -65,10 +89,12 @@ static const R_CallMethodDef CallEntries[] = {
   {"impl_foo_intx", (DL_FUNC) &impl_foo_intx, 1},
   {"impl_foo_intxy", (DL_FUNC) &impl_foo_intxy, 2},
   {"impl_foo_intn", (DL_FUNC) &impl_foo_intn, 1},
+  {"impl_foo_mk_seq", (DL_FUNC) &impl_foo_mk_seq, 1},
   {"impl_foo_dbl", (DL_FUNC) &impl_foo_dbl, 0},
   {"impl_foo_dbl_sq", (DL_FUNC) &impl_foo_dbl_sq, 0},
   {"impl_foo_dblx", (DL_FUNC) &impl_foo_dblx, 1},
   {"impl_foo_dblxy", (DL_FUNC) &impl_foo_dblxy, 2},
+  {"impl_foo_mk_dbl", (DL_FUNC) &impl_foo_mk_dbl, 1},
   {NULL, NULL, 0}
 };
 
