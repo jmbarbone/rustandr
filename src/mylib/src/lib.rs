@@ -6,3 +6,4 @@ pub use functions::foo_dbl;
 pub use functions::foo_int_sq;
 pub use functions::foo_dbl_sq;
 pub use functions::foo_intx;
+pub use functions::foo_dblx;

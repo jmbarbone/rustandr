@@ -8,6 +8,7 @@
 \alias{foo_intx}
 \alias{foo_dbl}
 \alias{foo_dbl_sq}
+\alias{foo_dblx}
 \title{Functions}
 \usage{
 foo_hello()
@@ -21,6 +22,8 @@ foo_intx(x = 42L)
 foo_dbl()
 
 foo_dbl_sq()
+
+foo_dblx(x = 4.2)
 }
 \description{
 Functions that call to Rust

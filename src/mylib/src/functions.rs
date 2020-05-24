@@ -38,3 +38,8 @@ pub extern fn foo_dbl() -> c_double {
 pub extern fn foo_dbl_sq() -> c_double {
     foo_dbl() * foo_dbl() as c_double
 }
+
+#[no_mangle]
+pub extern fn foo_dblx(x: c_double) -> c_double {
+    x
+}

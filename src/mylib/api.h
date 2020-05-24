@@ -10,6 +10,7 @@ int foo_int_sq();
 int foo_intx();
 double foo_dbl();
 double foo_dbl_sq();
+double foo_dblx();
 
 #ifdef __cplusplus
 }

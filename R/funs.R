@@ -50,3 +50,10 @@ foo_dbl_sq <- function() {
   .Call(impl_foo_dbl_sq)
 }
 
+#' @rdname funs
+#' @export
+#' @useDynLib rustandr impl_foo_dblx
+foo_dblx <- function(x = 4.2) {
+  .Call(impl_foo_dblx, as.double(x))
+}
+

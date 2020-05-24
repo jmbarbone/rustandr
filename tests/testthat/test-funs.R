@@ -15,4 +15,8 @@ test_that("foo_int()", {
 test_that("foo_dbl()", {
   expect_equal(foo_dbl(), 4.2)
   expect_equal(foo_dbl_sq(), 4.2^2)
+  expect_equal(foo_dblx(), 4.2)
+  expect_equal(foo_dblx(1.7), 1.7)
+  expect_error(foo_dblx(42L), NA)
+  expect_equal(foo_dblx(42L), 42)
 })
