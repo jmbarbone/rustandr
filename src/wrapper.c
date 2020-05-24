@@ -9,10 +9,6 @@
 
 // Actual Wrappers
 SEXP impl_foo_hello(){
-//   SEXP out = PROTECT(Rf_allocVector(STRSXP, 1));
-//   SET_STRING_ELT(out, 0, Rf_mkChar(foo_hello()));
-//   UNPROTECT(1);
-//   return out;
   return Rf_ScalarString(Rf_mkCharCE(foo_hello(), CE_UTF8));
 }
 
