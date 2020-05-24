@@ -8,9 +8,9 @@ use std::ffi::CString;
 
 #[no_mangle]
 pub extern fn foo_hello() -> *const c_char {
-    let orig = CString::new("Hello, world.").unwrap();
-    let out = orig.as_ptr();
-    std::mem::forget(orig);
+    let res = CString::new("Hello, world.").unwrap();
+    let out = res.as_ptr();
+    std::mem::forget(res);
     out
 }
 
@@ -61,15 +61,19 @@ pub extern fn foo_dblxy(x: c_double, y: c_double) -> c_double {
 
 #[no_mangle]
 pub extern fn foo_mk_dbl(x: c_int) -> *const c_double {
-    let out: Vec<f64> = vec![0.0; x as usize];
-    out.as_ptr()
+    let res: Vec<f64> = vec![0.0; x as usize];
+    let out = res.as_ptr();
+    std::mem::forget(res);
+    out
 }
 
 #[no_mangle]
 pub extern fn foo_mk_seq(x: c_int) -> *const c_int {
-    let mut out: Vec<i32> = vec![];
+    let mut res: Vec<i32> = vec![];
     for i in 0..x {
-        out.push(i + 1 as i32)
+        res.push(i + 1 as i32)
     }
-    out.as_mut_ptr()
-}
+    let out = res.as_mut_ptr();
+    std::mem::forget(res);
+    out
+}   
