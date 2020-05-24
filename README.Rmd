@@ -18,7 +18,8 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of rustandr is to provide a template to run Rust code through and R package.
+The goal of `rustandr` is to provide a template to run Rust code through and R package.
+It's practice and note keeping for myself.
 
 ## Installation
 
@@ -37,5 +38,13 @@ library(rustandr)
 ## basic example code
 foo_hello()
 foo_int()
+foo_intn(1:100)
+foo_intn(seq(-12L, 1L, 17L))
+
+# multiplies x by y
+foo_intxy(3L, 8L)
+
+# divides x by y
+foo_dblxy(61, 7)
 ```
 

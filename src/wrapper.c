@@ -21,19 +21,19 @@ SEXP impl_foo_int_sq(){
 }
 
 SEXP impl_foo_intx(SEXP x){
-    return Rf_ScalarInteger(foo_intx(Rf_asInteger(x)));
+  return Rf_ScalarInteger(foo_intx(Rf_asInteger(x)));
 }
 
 SEXP impl_foo_intxy(SEXP x, SEXP y){
-    return Rf_ScalarInteger(foo_intxy(Rf_asInteger(x), Rf_asInteger(y)));
+  return Rf_ScalarInteger(foo_intxy(Rf_asInteger(x), Rf_asInteger(y)));
 }
 
 SEXP impl_foo_intn(SEXP x){
   int n = Rf_length(x);
   SEXP out = PROTECT(Rf_allocVector(INTSXP, n));
-  int *result = foo_intn(INTEGER(x));
+  int* result = foo_intn(INTEGER(x));
 
-  for(int i; i < n; i++) {
+  for(int i = 0; i < n; i++) {
     INTEGER(out)[i] = result[i];
   }
 

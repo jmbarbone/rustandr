@@ -1,10 +1,10 @@
 context("Functions")
 
-test_that("foo_hello()", {
+test_that("characters", {
   expect_equal(foo_hello(), "Hello, world.")
 })
 
-test_that("foo_int()", {
+test_that("integers", {
   expect_equal(foo_int(), 42L)
   expect_equal(foo_int_sq(), 42L^2)
   expect_equal(foo_intx(), 42L)
@@ -23,7 +23,7 @@ test_that("foo_int()", {
   expect_error(foo_intn(1L, 2L))
 })
 
-test_that("foo_dbl()", {
+test_that("doubles", {
   expect_equal(foo_dbl(), 4.2)
   expect_equal(foo_dbl_sq(), 4.2^2)
   expect_equal(foo_dblx(), 4.2)
