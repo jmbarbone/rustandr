@@ -6,6 +6,7 @@ test_that("foo_hello()", {
 
 test_that("foo_int()", {
   expect_equal(foo_int(), 42L)
+  expect_equal(foo_int_sq(), 42L^2)
 })
 
 test_that("foo_dbl()", {

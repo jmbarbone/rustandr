@@ -16,6 +16,10 @@ SEXP impl_foo_int(){
   return Rf_ScalarInteger(foo_int());
 }
 
+SEXP impl_foo_int_sq(){
+  return Rf_ScalarInteger(foo_int_sq());
+}
+
 SEXP impl_foo_dbl(){
   return Rf_ScalarReal(foo_dbl());
 }
@@ -24,6 +28,7 @@ SEXP impl_foo_dbl(){
 static const R_CallMethodDef CallEntries[] = {
   {"impl_foo_hello", (DL_FUNC) &impl_foo_hello, 0},
   {"impl_foo_int", (DL_FUNC) &impl_foo_int, 0},
+  {"impl_foo_int_sq", (DL_FUNC) &impl_foo_int_sq, 0},
   {"impl_foo_dbl", (DL_FUNC) &impl_foo_dbl, 0},
   {NULL, NULL, 0}
 };

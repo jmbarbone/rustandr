@@ -20,6 +20,11 @@ pub extern fn foo_int() -> c_int {
 }
 
 #[no_mangle]
+pub extern fn foo_int_sq() -> c_int {
+  foo_int() * foo_int() as c_int
+}
+
+#[no_mangle]
 pub extern fn foo_dbl() -> c_double {
     4.2 as c_double
 }

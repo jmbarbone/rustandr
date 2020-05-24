@@ -3,6 +3,8 @@
 export(foo_dbl)
 export(foo_hello)
 export(foo_int)
+export(foo_int_sq)
 useDynLib(rustandr,impl_foo_dbl)
 useDynLib(rustandr,impl_foo_hello)
 useDynLib(rustandr,impl_foo_int)
+useDynLib(rustandr,impl_foo_int_sq)

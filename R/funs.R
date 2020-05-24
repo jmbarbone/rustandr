@@ -23,8 +23,16 @@ foo_int <- function() {
 
 #' @rdname funs
 #' @export
+#' @useDynLib rustandr impl_foo_int_sq
+foo_int_sq <- function() {
+  .Call(impl_foo_int_sq)
+}
+
+#' @rdname funs
+#' @export
 #' @useDynLib rustandr impl_foo_dbl
 foo_dbl <- function() {
   .Call(impl_foo_dbl)
 }
+
 

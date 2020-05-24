@@ -4,12 +4,15 @@
 \alias{funs}
 \alias{foo_hello}
 \alias{foo_int}
+\alias{foo_int_sq}
 \alias{foo_dbl}
 \title{Functions}
 \usage{
 foo_hello()
 
 foo_int()
+
+foo_int_sq()
 
 foo_dbl()
 }
