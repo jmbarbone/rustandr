@@ -7,6 +7,7 @@
 \alias{foo_int_sq}
 \alias{foo_intx}
 \alias{foo_intxy}
+\alias{foo_intn}
 \alias{foo_dbl}
 \alias{foo_dbl_sq}
 \alias{foo_dblx}
@@ -22,6 +23,8 @@ foo_int_sq()
 foo_intx(x = 42L)
 
 foo_intxy(x = 42L, y = 17L)
+
+foo_intn(x = 1:2)
 
 foo_dbl()
 

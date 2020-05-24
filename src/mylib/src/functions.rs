@@ -35,6 +35,11 @@ pub extern fn foo_intxy(x: c_int, y: c_int) -> c_int {
 }
 
 #[no_mangle]
+pub extern fn foo_intn(x: *const c_int) -> *const c_int {
+    x
+}
+
+#[no_mangle]
 pub extern fn foo_dbl() -> c_double {
     4.2 as c_double
 }

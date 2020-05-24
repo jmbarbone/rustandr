@@ -13,6 +13,14 @@ test_that("foo_int()", {
   expect_equal(foo_intxy(), 42L * 17L)
   expect_equal(foo_intxy(21L, 13L), 21L * 13L)
   expect_error(foo_intxy(4.2))
+  expect_equal(foo_intn(), 1:2)
+  expect_equal(foo_intn(5L), 5L)
+  expect_equal(foo_intn(0:100), c(0:100))
+  expect_equal(foo_intn(100:0), c(100:0))
+  expect_equal(foo_intn(seq(-33L, 3L, 3L)), seq(-33L, 3L, 3L))
+  expect_error(foo_intn(1))
+  expect_error(foo_intn(1L, 2))
+  expect_error(foo_intn(1L, 2L))
 })
 
 test_that("foo_dbl()", {
