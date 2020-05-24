@@ -40,6 +40,10 @@ SEXP impl_foo_dblx(SEXP x){
   return Rf_ScalarReal(foo_dblx(Rf_asReal(x)));
 }
 
+SEXP impl_foo_dblxy(SEXP x, SEXP y){
+    return Rf_ScalarReal(foo_dblxy(Rf_asReal(x), Rf_asReal(y)));
+}
+
 // Standard R package stuff
 static const R_CallMethodDef CallEntries[] = {
   {"impl_foo_hello", (DL_FUNC) &impl_foo_hello, 0},
@@ -50,6 +54,7 @@ static const R_CallMethodDef CallEntries[] = {
   {"impl_foo_dbl", (DL_FUNC) &impl_foo_dbl, 0},
   {"impl_foo_dbl_sq", (DL_FUNC) &impl_foo_dbl_sq, 0},
   {"impl_foo_dblx", (DL_FUNC) &impl_foo_dblx, 1},
+  {"impl_foo_dblxy", (DL_FUNC) &impl_foo_dblxy, 2},
   {NULL, NULL, 0}
 };
 

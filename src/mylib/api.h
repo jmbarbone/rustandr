@@ -12,6 +12,7 @@ int foo_intxy();
 double foo_dbl();
 double foo_dbl_sq();
 double foo_dblx();
+double foo_dblxy();
 
 #ifdef __cplusplus
 }

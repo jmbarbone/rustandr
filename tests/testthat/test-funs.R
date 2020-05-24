@@ -22,4 +22,7 @@ test_that("foo_dbl()", {
   expect_equal(foo_dblx(1.7), 1.7)
   expect_error(foo_dblx(42L), NA)
   expect_equal(foo_dblx(42L), 42)
+  expect_equal(foo_dblxy(), 4.2 / 1.7)
+  expect_equal(foo_dblxy(21, 13), 21 / 13)
+  expect_error(foo_dblxy(x = 42L), NA)
 })
