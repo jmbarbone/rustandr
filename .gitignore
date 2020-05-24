@@ -6,3 +6,4 @@ src/*.so$
 src/*.dll$
 src/*.a$
 src/mylib/target/*
+.Rproj.user

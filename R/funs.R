@@ -21,3 +21,10 @@ foo_int <- function() {
   .Call(impl_foo_int)
 }
 
+#' @rdname funs
+#' @export
+#' @useDynLib rustandr impl_foo_dbl
+foo_dbl <- function() {
+  .Call(impl_foo_dbl)
+}
+

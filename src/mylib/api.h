@@ -6,6 +6,7 @@ extern "C" {
 
 char * foo_hello();
 int foo_int();
+double foo_dbl();
 
 #ifdef __cplusplus
 }

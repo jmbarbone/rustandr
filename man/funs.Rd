@@ -4,11 +4,14 @@
 \alias{funs}
 \alias{foo_hello}
 \alias{foo_int}
+\alias{foo_dbl}
 \title{Functions}
 \usage{
 foo_hello()
 
 foo_int()
+
+foo_dbl()
 }
 \description{
 Functions that call to Rust
