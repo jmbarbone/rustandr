@@ -5,12 +5,13 @@ use libc::c_char;
 use libc::c_int;
 use libc::c_double;
 use std::ffi::CString;
+use std::mem::forget;
 
 #[no_mangle]
 pub extern fn foo_hello() -> *const c_char {
     let res = CString::new("Hello, world.").unwrap();
     let out = res.as_ptr();
-    std::mem::forget(res);
+    forget(res);
     out
 }
 
@@ -63,7 +64,7 @@ pub extern fn foo_dblxy(x: c_double, y: c_double) -> c_double {
 pub extern fn foo_mk_dbl(x: c_int) -> *const c_double {
     let res: Vec<f64> = vec![0.0; x as usize];
     let out = res.as_ptr();
-    std::mem::forget(res);
+    forget(res);
     out
 }
 
@@ -74,6 +75,17 @@ pub extern fn foo_mk_seq(x: c_int) -> *const c_int {
         res.push(i + 1 as i32)
     }
     let out = res.as_mut_ptr();
-    std::mem::forget(res);
+    forget(res);
     out
 }   
+
+use std::slice;
+
+#[no_mangle]
+pub extern fn foo_dbl_sum(x: *const c_double, n: c_int) -> c_double {
+    let xx = unsafe{
+        assert!(!x.is_null());
+        slice::from_raw_parts(x, n as usize)
+    };
+    xx.iter().sum::<f64>()
+}

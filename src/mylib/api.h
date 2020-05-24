@@ -16,6 +16,7 @@ double foo_dbl_sq();
 double foo_dblx();
 double foo_dblxy();
 double * foo_mk_dbl();
+double foo_dbl_sum();
 
 #ifdef __cplusplus
 }

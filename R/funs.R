@@ -95,3 +95,10 @@ foo_mk_dbl <- function(x = 10L) {
   stopifnot(is.integer(x))
   .Call(impl_foo_mk_dbl, x)
 }
+
+#' @rdname funs
+#' @export
+#' @useDynLib rustandr impl_foo_dbl_sum
+foo_dbl_sum <- function(x = seq(0, 1, 0.5)) {
+  .Call(impl_foo_dbl_sum, as.double(x))
+}

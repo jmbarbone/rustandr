@@ -41,4 +41,11 @@ test_that("doubles", {
   expect_equal(foo_mk_dbl(), double(10))
   expect_length(foo_mk_dbl(100L), 100)
   expect_error(foo_mk_dbl(10))
+  expect_equal(foo_dbl_sum(), 1.5)
+  expect_equal(foo_dbl_sum(1:10), 55)
+  xunif <- runif(1e4)
+  expect_equal(foo_dbl_sum(xunif), sum(xunif))
+  # Does not account for NA values
+  expect_equal(foo_dbl_sum(c(xunif, NA_real_)), NA_real_)
 })
+
