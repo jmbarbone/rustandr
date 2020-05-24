@@ -20,8 +20,16 @@ SEXP impl_foo_int_sq(){
   return Rf_ScalarInteger(foo_int_sq());
 }
 
+SEXP impl_foo_intx(SEXP x){
+    return Rf_ScalarInteger(foo_intx(Rf_asInteger(x)));
+}
+
 SEXP impl_foo_dbl(){
   return Rf_ScalarReal(foo_dbl());
+}
+
+SEXP impl_foo_dbl_sq(){
+  return Rf_ScalarReal(foo_dbl_sq());
 }
 
 // Standard R package stuff
@@ -29,7 +37,9 @@ static const R_CallMethodDef CallEntries[] = {
   {"impl_foo_hello", (DL_FUNC) &impl_foo_hello, 0},
   {"impl_foo_int", (DL_FUNC) &impl_foo_int, 0},
   {"impl_foo_int_sq", (DL_FUNC) &impl_foo_int_sq, 0},
+  {"impl_foo_intx", (DL_FUNC) &impl_foo_intx, 1},
   {"impl_foo_dbl", (DL_FUNC) &impl_foo_dbl, 0},
+  {"impl_foo_dbl_sq", (DL_FUNC) &impl_foo_dbl_sq, 0},
   {NULL, NULL, 0}
 };
 

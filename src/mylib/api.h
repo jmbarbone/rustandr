@@ -7,7 +7,9 @@ extern "C" {
 char * foo_hello();
 int foo_int();
 int foo_int_sq();
+int foo_intx();
 double foo_dbl();
+double foo_dbl_sq();
 
 #ifdef __cplusplus
 }
