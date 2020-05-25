@@ -37,14 +37,19 @@ This is a basic example which shows you how to solve a common problem:
 library(rustandr)
 ## basic example code
 foo_hello()
+
 foo_int()
+
 foo_intn(1:100)
-foo_intn(seq(-12L, 1L, 17L))
+
+foo_intn(seq(-12L, 17L, 1L))
 
 # multiplies x by y
 foo_intxy(3L, 8L)
 
 # divides x by y
 foo_dblxy(61, 7)
+
+foo_int_cumsum(rpois(10, 5))
 ```
 
