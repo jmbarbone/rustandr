@@ -6,6 +6,7 @@ use libc::c_int;
 use libc::c_double;
 use std::ffi::CString;
 use std::mem::forget;
+use std::slice;
 
 #[no_mangle]
 pub extern fn foo_hello() -> *const c_char {
@@ -79,13 +80,36 @@ pub extern fn foo_mk_seq(x: c_int) -> *const c_int {
     out
 }   
 
-use std::slice;
+// Slicing ripped from:
+// https://stackoverflow.com/a/37437838
 
 #[no_mangle]
 pub extern fn foo_dbl_sum(x: *const c_double, n: c_int) -> c_double {
-    let xx = unsafe{
+    unsafe{
         assert!(!x.is_null());
         slice::from_raw_parts(x, n as usize)
+    }
+    .iter()
+    .sum::<f64>()
+}
+
+#[no_mangle]
+pub extern fn foo_int_cumsum(x: *const c_int, n: c_int) -> *const c_int {
+    let nn = n as usize;
+    let slices = unsafe{
+        assert!(!x.is_null());
+        slice::from_raw_parts(x, nn)
     };
-    xx.iter().sum::<f64>()
+    
+    let mut result: Vec<i32> = vec![0; nn];
+    result[0] = slices[0] as i32;
+
+    for i in 1..nn {
+        result[i] = (result[i-1] + (slices[i] as i32)) as i32;
+    }
+    let out = result.as_mut_ptr();
+    forget(nn);
+    forget(slices);
+    forget(result);
+    out
 }

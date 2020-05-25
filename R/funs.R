@@ -62,6 +62,14 @@ foo_mk_seq <- function(x = 10L) {
 
 #' @rdname funs
 #' @export
+#' @useDynLib rustandr impl_foo_int_cumsum
+foo_int_cumsum <- function(x = 1:10) {
+  stopifnot(is.integer(x) & !anyNA(x))
+  .Call(impl_foo_int_cumsum, x)
+}
+
+#' @rdname funs
+#' @export
 #' @useDynLib rustandr impl_foo_dbl
 foo_dbl <- function() {
   .Call(impl_foo_dbl)

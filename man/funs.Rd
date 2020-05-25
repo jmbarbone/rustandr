@@ -9,6 +9,7 @@
 \alias{foo_intxy}
 \alias{foo_intn}
 \alias{foo_mk_seq}
+\alias{foo_int_cumsum}
 \alias{foo_dbl}
 \alias{foo_dbl_sq}
 \alias{foo_dblx}
@@ -30,6 +31,8 @@ foo_intxy(x = 42L, y = 17L)
 foo_intn(x = 1:2)
 
 foo_mk_seq(x = 10L)
+
+foo_int_cumsum(x = 1:10)
 
 foo_dbl()
 

@@ -54,6 +54,20 @@ SEXP impl_foo_mk_seq(SEXP x){
   return out;
 }
 
+SEXP impl_foo_int_cumsum(SEXP x){
+  int n = Rf_length(x);
+  SEXP out = PROTECT(Rf_allocVector(INTSXP, n));
+  // Need to determine n beforehand
+  int * result = foo_int_cumsum(INTEGER(x), n);
+
+  for(int i = 0; i < n; i++) {
+    INTEGER(out)[i] = result[i];
+  }
+
+  UNPROTECT(1);
+  return out;
+}
+
 SEXP impl_foo_dbl(){
   return Rf_ScalarReal(foo_dbl());
 }
@@ -96,6 +110,7 @@ static const R_CallMethodDef CallEntries[] = {
   {"impl_foo_intxy", (DL_FUNC) &impl_foo_intxy, 2},
   {"impl_foo_intn", (DL_FUNC) &impl_foo_intn, 1},
   {"impl_foo_mk_seq", (DL_FUNC) &impl_foo_mk_seq, 1},
+  {"impl_foo_int_cumsum", (DL_FUNC) &impl_foo_int_cumsum, 1},
   {"impl_foo_dbl", (DL_FUNC) &impl_foo_dbl, 0},
   {"impl_foo_dbl_sq", (DL_FUNC) &impl_foo_dbl_sq, 0},
   {"impl_foo_dblx", (DL_FUNC) &impl_foo_dblx, 1},

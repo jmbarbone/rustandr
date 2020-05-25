@@ -11,6 +11,7 @@ int foo_intx();
 int foo_intxy();
 int * foo_intn();
 int * foo_mk_seq();
+int * foo_int_cumsum();
 double foo_dbl();
 double foo_dbl_sq();
 double foo_dblx();
