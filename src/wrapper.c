@@ -101,6 +101,10 @@ SEXP impl_foo_dbl_sum(SEXP x){
   return Rf_ScalarReal(foo_dbl_sum(REAL(x), n));
 }
 
+SEXP impl_foo_sexp_number(SEXP x){
+  return foo_sexp_number(x);
+}
+
 // Standard R package stuff
 static const R_CallMethodDef CallEntries[] = {
   {"impl_foo_hello", (DL_FUNC) &impl_foo_hello, 0},
@@ -117,6 +121,7 @@ static const R_CallMethodDef CallEntries[] = {
   {"impl_foo_dblxy", (DL_FUNC) &impl_foo_dblxy, 2},
   {"impl_foo_mk_dbl", (DL_FUNC) &impl_foo_mk_dbl, 1},
   {"impl_foo_dbl_sum", (DL_FUNC) &impl_foo_dbl_sum, 1},
+  {"impl_foo_sexp_number", (DL_FUNC) &impl_foo_sexp_number, 1},
   {NULL, NULL, 0}
 };
 

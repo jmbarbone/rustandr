@@ -14,3 +14,4 @@ pub use functions::foo_mk_dbl;
 pub use functions::foo_mk_seq;
 pub use functions::foo_dbl_sum;
 pub use functions::foo_int_cumsum;
+pub use functions::foo_sexp_number;

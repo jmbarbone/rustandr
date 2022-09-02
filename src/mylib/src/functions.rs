@@ -1,5 +1,6 @@
 use libc;
 use std;
+use lexpr;
 
 use libc::c_char;
 use libc::c_int;
@@ -112,4 +113,10 @@ pub extern fn foo_int_cumsum(x: *const c_int, n: c_int) -> *const c_int {
     forget(slices);
     forget(result);
     out
+}
+
+#[no_mangle]
+pub extern fn foo_sexp_number(x: lexpr::number::Number) -> lexpr::number::Number {
+    // lexpr::to_vec(x)
+    x
 }

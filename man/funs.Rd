@@ -16,6 +16,7 @@
 \alias{foo_dblxy}
 \alias{foo_mk_dbl}
 \alias{foo_dbl_sum}
+\alias{foo_sexp_number}
 \title{Functions}
 \usage{
 foo_hello()
@@ -45,6 +46,8 @@ foo_dblxy(x = 4.2, y = 1.7)
 foo_mk_dbl(x = 10L)
 
 foo_dbl_sum(x = seq(0, 1, 0.5))
+
+foo_sexp_number(x = 42)
 }
 \description{
 Functions that call to Rust

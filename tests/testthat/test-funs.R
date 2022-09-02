@@ -1,5 +1,3 @@
-context("Functions")
-
 test_that("characters", {
   expect_equal(foo_hello(), "Hello, world.")
 })
@@ -72,3 +70,7 @@ test_that("doubles", {
   expect_equal(foo_dbl_sum(c(xunif, NA_real_)), NA_real_)
 })
 
+test_that("SEXP", {
+  expect_equal(foo_sexp_number(), 42)
+  expect_equal(foo_sexp_number(1:10), 1:10)
+})

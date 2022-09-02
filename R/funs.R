@@ -110,3 +110,10 @@ foo_mk_dbl <- function(x = 10L) {
 foo_dbl_sum <- function(x = seq(0, 1, 0.5)) {
   .Call(impl_foo_dbl_sum, as.double(x))
 }
+
+#' @rdname funs
+#' @export
+#' @useDynLib rustandr impl_foo_sexp_number
+foo_sexp_number <- function(x = 42) {
+  .Call(foo_sexp_number, as.double(x))
+}
